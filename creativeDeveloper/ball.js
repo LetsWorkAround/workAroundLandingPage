@@ -9,17 +9,37 @@ export class Ball {
         this.y = diameter + (Math.random() * (stageHeight - diameter));
     }
 
-    draw(ctx, stageWidth, stageHeight, block) {
+    draw(ctx, stageWidth, stageHeight, fillColor, block, ball1, ball2) {
         this.x += this.vx;
         this.y += this.vy;
 
+        if (ball1 != null) {
+            this.bounceBalls(ball1);
+        }
+        if (ball2 != null) {
+            this.bounceBalls(ball2);
+        }
         this.bounceWindow(stageWidth, stageHeight);
         this.bounceBlock(block);
 
-        ctx.fillStyle = '#fdd700';
+        // ctx.fillStyle = '#fdd700';
+        ctx.fillStyle = fillColor;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
         ctx.fill();
+    }
+
+    bounceBalls(otherBall) {
+        if (this.isBallsCollapse(this, otherBall) == true) {
+            console.log("collapsed")
+            if (this.x < otherBall.x) {
+                otherBall.vx *= -1;
+                otherBall.x += otherBall.vx;
+            } else {
+                this.vx *= -1;
+                this.x += this.vx;
+            }
+        }
     }
 
     bounceWindow(stageWidth, stageHeight) {
@@ -61,5 +81,17 @@ export class Ball {
                 this.y += this.vy;
             }
         }
+    }
+
+    isBallsCollapse (ball1, ball2) {
+        const disX = Math.abs(ball1.x - ball2.x)
+        const disY = Math.abs(ball1.y - ball2.y)
+        const distance = Math.sqrt(disX*disX + disY*disY)
+
+        if (distance < ball1.radius + ball2.radius) {
+            return true;
+        } else {
+            return false;
+        }        
     }
 }
