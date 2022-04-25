@@ -42,6 +42,7 @@ export class Ball {
         }
     }
 
+    //TODO: 벽에서 공이랑 부딪히면 vx가 0이 되기도 하네.
     bounceWindow(stageWidth, stageHeight) {
         const minX = this.radius;
         const maxX = stageWidth - this.radius;
@@ -51,7 +52,9 @@ export class Ball {
         if (this.x <= minX || this.x >= maxX) {
             this.vx *= -1;
             this.x += this.vx;
-        } else if ( this.y <= minY || this.y >= maxY) {
+        }
+        
+        if ( this.y <= minY || this.y >= maxY) {
             this.vy *= -1;
             this.y += this.vy;
         }
