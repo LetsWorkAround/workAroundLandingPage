@@ -15,9 +15,12 @@ class App {
         window.addEventListener('resize', this.resize.bind(this), false);
         this.resize();
 
-        this.ball = new Ball(this.stageWidth, this.stageHeight, 60, 15);
-        this.ball1 = new Ball(this.stageWidth, this.stageHeight, 40, 10);
-        this.ball2 = new Ball(this.stageWidth, this.stageHeight, 20, 5);
+        this.balls = []
+        
+        for(let i=0; i< 10; i++) {
+            const ball = new Ball(this.stageWidth, this.stageHeight, 30);
+            this.balls.push(ball);
+        }
 
         this.block = new Block(700, 30, 300, 450);
 
@@ -40,16 +43,26 @@ class App {
         this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight)
         
         this.block.draw(this.ctx);
-        
-        this.ball.draw(this.ctx, this.stageWidth, this.stageHeight, "#f23400", this.block)
-        this.ball1.draw(this.ctx, this.stageWidth, this.stageHeight, "#23d700", this.block, this.ball, null)
-        this.ball2.draw(this.ctx, this.stageWidth, this.stageHeight, "#fd3300", this.block, this.ball1, this.ball)
+
+        let leftballs = this.balls
+        for(let i=0; i< this.balls.length; i++) {
+            // console.log(i + "," + leftballs.length);
+            
+            leftballs = leftballs.slice(1, leftballs.length);
+            this.balls[i].draw(this.ctx, this.stageWidth, this.stageHeight, this.block, leftballs, i);
+        }
     }
+}
 
+function addBall() {
+    const ball = new Ball(this.stageWidth, this.stageHeight, 30);
+    this.balls.push(ball);
+}
 
+function removeBall() {
+    this.balls = this.balls.slice(0, this.balls.length);
 }
 
 window.onload = () => {
-    console.log("window.onload");
     new App();
 }

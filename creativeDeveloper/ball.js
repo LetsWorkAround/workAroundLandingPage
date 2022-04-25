@@ -1,29 +1,30 @@
 export class Ball {
-    constructor(stageWidth, stageHeight, radius, speed) {
+    constructor(stageWidth, stageHeight, radius) {
         this.radius = radius;
-        this.vx = speed;
-        this.vy = speed;
+        // this.vx = speed;
+        // this.vy = speed;
+
+        this.setRandomVelocity()
 
         const diameter = this.radius * 2;
         this.x = diameter + (Math.random() * (stageWidth - diameter));
         this.y = diameter + (Math.random() * (stageHeight - diameter));
     }
 
-    draw(ctx, stageWidth, stageHeight, fillColor, block, ball1, ball2) {
+    draw(ctx, stageWidth, stageHeight, block, balls, ith) {
         this.x += this.vx;
         this.y += this.vy;
 
-        if (ball1 != null) {
-            this.bounceBalls(ball1);
-        }
-        if (ball2 != null) {
-            this.bounceBalls(ball2);
-        }
+        // balls.map (ball => ball.bounceBalls(ball)) // 왜 되지?
+        for (let i = 0; i < balls.length; i++){
+            this.bounceBalls(balls[i])
+          }
+
         this.bounceWindow(stageWidth, stageHeight);
         this.bounceBlock(block);
 
-        // ctx.fillStyle = '#fdd700';
-        ctx.fillStyle = fillColor;
+        this.setRandomColor(ctx, ith)
+
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
         ctx.fill();
@@ -96,5 +97,20 @@ export class Ball {
         } else {
             return false;
         }        
+    }
+
+    setRandomColor(ctx, ith) {
+        const colorsSets = ["#fec194", "#ff0061", "#00ffa9", "#004dff", "#1fc9fd", "#fc0061", "#a32cdf", "#106ad2", "#ffe53b", "#ff2525", "#00c0ff", "#4218b8", "#00ffff", "#93278f", "#ff0a6c", "#4a3cdb", "#ffe53b", "#00ffff"]
+        // const ith = parseInt(((Math.random() * 10000) % colorsSets.length))
+        // console.log(ith)
+        ctx.fillStyle = colorsSets[ith]
+    }
+
+    setRandomVelocity() {
+        const fvx = parseInt(((Math.random() * 10000) % 20))
+        const fvy = parseInt(((Math.random() * 10000) % 20))
+
+        this.vx = fvx
+        this.vy = fvy
     }
 }
