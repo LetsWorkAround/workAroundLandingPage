@@ -605,6 +605,14 @@ progress {
   height: auto;
 }
 
+.imgGrid {
+  max-width: 26rem;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -3040,6 +3048,13 @@ textarea.form-control-lg {
   background-color: #d9aa00;
   border-color: #cca000;
 }
+
+.btn-color{
+  color: #fff;
+  background-color: #d9aa00;
+  border-color: #fff;
+}
+
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
   background-color: #d9aa00;
@@ -11419,7 +11434,7 @@ header.masthead {
   background-color: rgba(0, 0, 0, 0.7);
   background-blend-mode: darken;
 }
-header.masthead .masthead-subheading {
+header.masthead .masthead-subheading, .mastheadThirdheading {
   font-size: 1.5rem;
   line-height: 1.5rem;
   margin-bottom: 2rem;
@@ -11446,7 +11461,7 @@ section.places {
   background-blend-mode: darken;
 }
 
-section.places .masthead-subheading {
+section.places .masthead-subheading, .mastheadThirdheading {
   font-size: 2.5rem;
   line-height: 1.5rem;
   margin-bottom: 2rem;
@@ -11458,7 +11473,7 @@ section.places .masthead-subheading {
     padding-top: 17rem;
     padding-bottom: 12.5rem;
   }
-  header.masthead .masthead-subheading {
+  header.masthead .masthead-subheading, .mastheadThirdheading {
     font-size: 2.5rem;
     line-height: 2.7rem;
     margin-bottom: 3rem;
@@ -11501,7 +11516,8 @@ section.places .masthead-subheading {
 #sports .sports-item .sports-caption {
   padding: 1.5rem;
   text-align: center;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color:transparent;
 }
 #sports .sports-item .sports-caption .sports-caption-heading {
   font-size: 2rem;
@@ -11803,6 +11819,15 @@ section#contact form#contactForm :-ms-input-placeholder {
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
+  font-weight: bold;
+}
+
+.mastheadThirdheading {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  color: black;
 }
 
 .section-step {
