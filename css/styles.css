@@ -2424,8 +2424,8 @@ textarea.form-control-lg {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 @media (prefers-reduced-motion: reduce) {
   .form-select {
@@ -11411,7 +11411,7 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/header-bg.jpg");
+  background-image: url("https://static.wixstatic.com/media/92d274_1b633404524940618b7443574aca25bb~mv2.jpg/v1/fill/w_1000,h_667,al_c,q_90,usm_0.66_1.00_0.01/92d274_1b633404524940618b7443574aca25bb~mv2.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -11431,6 +11431,26 @@ header.masthead .masthead-heading {
   line-height: 3.25rem;
   margin-bottom: 25px;
   font-family: 'Jua', sans-serif;
+}
+
+section.places {
+  padding-top: 10.5rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  color: #fff;
+  background-image: url("../assets/img/racquetball/강남일원구장1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+section.places .masthead-subheading {
+  font-size: 2.5rem;
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: 'Nanum Pen Script', cursive;
 }
 
 @media (min-width: 768px) {
