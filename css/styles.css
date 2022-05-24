@@ -11330,6 +11330,14 @@ p {
   margin-bottom: 4rem;
 }
 
+h3.section-subheading2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-family: 'roboto';
+  margin-bottom: 4rem;
+  letter-spacing: 2px;
+}
+
 @media (min-width: 768px) {
   section {
     padding: 9rem 0;
@@ -11338,6 +11346,13 @@ p {
 .btn-xl {
   padding: 1.25rem 2.5rem;
   font-family: 'Nanum Pen Script', cursive;
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
+.btn-xl2 {
+  padding: 1.25rem 2.5rem;
+  font-family: 'roboto', cursive;
   font-size: 1.7rem;
   font-weight: 300;
 }
@@ -11443,6 +11458,14 @@ header.masthead .masthead-subheading, .mastheadThirdheading {
 header.masthead .masthead-heading {
   font-size: 3.25rem;
   font-weight: 500;
+  line-height: 3.25rem;
+  margin-bottom: 25px;
+  font-family: 'Jua', sans-serif;
+}
+
+.submasthead-heading {
+  font-size: 2rem;
+  font-weight: 300;
   line-height: 3.25rem;
   margin-bottom: 25px;
   font-family: 'Jua', sans-serif;
